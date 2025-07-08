@@ -1,0 +1,39 @@
+{
+  "name": "IPFS-boot-choo",
+  "version": "1.0.0",
+  "description": "IPFS-boot choo.js starter",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rhodey/IPFS-boot-choo.git"
+  },
+  "homepage": "https://lock.host",
+  "scripts": {
+    "move1": "mv dist/_static/index.html dist/ && cp -r assets/ dist/_static/",
+    "move2": "mv dist/_static/_static/bundle.js dist/_static/ && rmdir dist/_static/_static",
+    "build": "rm -rf dist/ && webpack --config webpack.js && npm run move1 && npm run move2",
+    "dev": "webpack serve --config webpack.js"
+  },
+  "dependencies": {
+    "choo": "^7.1.0",
+    "nanolru": "^1.0.0"
+  },
+  "devDependencies": {
+    "choo-devtools": "^3.0.4",
+    "webpack": "5.94.0",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "5.2.2",
+    "html-webpack-plugin": "5.6.0",
+    "node-polyfill-webpack-plugin": "4.0.0",
+    "css-loader": "7.1.2",
+    "style-loader": "4.0.0"
+  },
+  "keywords": [
+    "ipfs",
+    "update",
+    "bootloader",
+    "hash",
+    "p2p",
+    "choo"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "repo": "https://github.com/rhodey/IPFS-boot-choo",
+  "name": "IPFS Choo Animals",
+  "arr": [
+    {
+      "version": "v0.0.1",
+      "timems": 1752008957861,
+      "cid": "bafybeih4o4cvgsiuiypjdl4xew5y7htgn2h7tzsrtsrdb5jhw4v3xf7q2i",
+      "notes": "A fun choo app with dancing animals v1"
+    },
+    {
+      "version": "v0.0.2",
+      "timems": 1752008984242,
+      "cid": "bafybeiadejvdt3s72r36hfw6jnyywcq6nobdzr7x4rf6xqv4nfwufqmcqa",
+      "notes": "Dancing animals v2 now with walruses!!"
+    },
+    {
+      "version": "v0.0.3",
+      "timems": 1752009014025,
+      "cid": "bafybeif5m4rup2oprdwnlkhicqibods7347fwfejag5gp4rjmczkjjafgq",
+      "notes": "Version 3 is here to make the list longer"
+    }
+  ]
+}

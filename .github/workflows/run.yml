@@ -1,0 +1,41 @@
+name: Run build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      cidv0: ${{ steps.webapp.outputs.cidv0 }}
+      cidv1: ${{ steps.webapp.outputs.cidv1 }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build docker
+        run: docker buildx build --platform=linux/amd64 -t ipfs-boot-choo .
+
+      - name: Build webapp
+        id: webapp
+        run: |
+          docker run --rm -i --platform=linux/amd64 -v ./dist:/root/dist ipfs-boot-choo | tee out.txt
+          cidv0=$(cat out.txt | grep CIDv0 | awk '{print $3}')
+          cidv1=$(cat out.txt | grep CIDv1 | awk '{print $3}')
+          echo "cidv0=$cidv0" >> $GITHUB_OUTPUT
+          echo "cidv1=$cidv1" >> $GITHUB_OUTPUT
+
+      - name: Summary
+        run: |
+          echo "Build ok"
+          echo "CIDv0 = ${{ steps.webapp.outputs.cidv0 }}"
+          echo "CIDv1 = ${{ steps.webapp.outputs.cidv1 }}"
+          echo "Build ok:" >> $GITHUB_STEP_SUMMARY
+          echo "+ CIDv0 = ${{ steps.webapp.outputs.cidv0 }}" >> $GITHUB_STEP_SUMMARY
+          echo "+ CIDv1 = ${{ steps.webapp.outputs.cidv1 }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
