@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       cidv0: ${{ steps.webapp.outputs.cidv0 }}
       cidv1: ${{ steps.webapp.outputs.cidv1 }}
