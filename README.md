@@ -5,7 +5,7 @@ IPFS-boot choo.js starter, see:
 + [choo.js](https://github.com/choojs/choo)
 
 ## History
-This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals) and then adapted further to demonstrate IPFS-boot [attestation](https://en.wikipedia.org/wiki/Trusted_Computing#Remote_attestation) features
+This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals) and then adapted further to demonstrate IPFS-boot [attestation](https://en.wikipedia.org/wiki/Trusted_Computing#Remote_attestation)
 + Click on the demo link below
 + Load v0.0.4 or later
 + Click "Attestation demo"
