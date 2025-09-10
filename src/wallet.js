@@ -4,9 +4,9 @@ const ZEROS = new Array(96).fill('0').join('')
 const DEV_PCR = [ZEROS, ZEROS, ZEROS]
 
 const PROD_PCR = [
-  '961d650a03f4af416c1934d0d1370264611aaed68cd9bdc79e62455386b400f3e4cafc2cd2c98409996d678625380ff9',
+  '1dec12cc87b9bb44cf66cd770f3cddeb7fe62cd622034b6dfb3f9f4473e289a506bd585020d54b2350431f94fae38f2f',
   '4b4d5b3661b3efc12920900c80e126e4ce783c522de6c02a2a5bf7af3a2b9327b86776f188e4be1c1c404a129dbda493',
-  '86178225d7160bb9d3a5c046cb14f60d4719bf07a8833a46d1a7a635f7ab3b0f7d016732f19ab9d43f7616e3e82b2011',
+  '29c92b2d29637f1347332b18fef6bb149890ed8abeddaad81f6c8f5b51138bef5a962b019a8b569045569b00cb95ab7b',
 ]
 
 const PROD_TARGET = 'https://demo.lock.host/api'
@@ -56,12 +56,12 @@ module.exports = function wallet(state, emit) {
     statee = `waiting on service worker connect`
   } else if (!state.attestConfigReady) {
     statee = `waiting on target select`
+  } else if (state.fetchError) {
+    statee = `fetch error: ${state.fetchError}`
   } else if (!state.enclaveWallet) {
     statee = `waiting on query enclave wallet`
   } else if (!state.userWallet) {
     statee = `waiting on create user wallet`
-  } else if (state.fetchError) {
-    statee = `fetch error: ${state.fetchError}`
   }
 
   return html`
@@ -101,13 +101,14 @@ module.exports = function wallet(state, emit) {
 
       <div class="askForFunds">
         <h1 class="header">Ask for funds</h1>
-        Enter a polite message to receive crypto<br/>
+        Enter a funny joke to receive crypto<br/>
         Enter a rude message to receive nothing<br/>
         (small delay waiting for the network to confirm txn)<br/>
         <br/>
-        MSG: ${askForFunds()} <input type="text" oninput=${askForFundsMsg} value="${state.askForFunds}" size="60"><br/>
+        MSG: ${askForFunds()} <input type="text" oninput=${askForFundsMsg} value="${state.askForFunds}" size="65"><br/>
         ACK: <input type="text" value="${state.askForFundsAck}" size="45" readonly><br/>
       </div>
+      <br/><br/><br/>
     </div>
   `
 }

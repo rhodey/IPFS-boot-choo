@@ -81,7 +81,7 @@ function store(state, emitter) {
   })
 
   // edit ask
-  state.askForFunds = 'please send me sol'
+  state.askForFunds = 'why did the worker quit his job at the recycling factory? because it was soda pressing'
   emitter.on('askForFundsMsg', (msg) => {
     state.askForFunds = msg
     emitter.emit('render')

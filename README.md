@@ -11,6 +11,8 @@ The aim is reproducible builds so docker is involved
 ```
 docker buildx build --platform=linux/amd64 -t ipfs-boot-choo .
 docker run --rm -i --platform=linux/amd64 -v ./dist:/root/dist ipfs-boot-choo
+> CIDv0 = QmeT5H5dQ1P3D3Yi4XNTwEJovAkrVeaLtyuauTjSJf7T1p
+> CIDv1 = bafybeihpmbawb757arkhnw7qtao5gteksjs2hxjsx3yjha7boldge4zoa4
 ```
 
 ## Pin
