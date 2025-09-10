@@ -1,10 +1,17 @@
 # IPFS-boot-choo
 IPFS-boot choo.js starter, see:
 + [IPFS-boot](https://github.com/rhodey/IPFS-boot)
++ [lock.host-node](https://github.com/rhodey/lock.host-node)
 + [choo.js](https://github.com/choojs/choo)
 
 ## History
-This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals). All that differs from standard choo.js is [index.js](/src/index.js) knows to unmount
+This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals) and then adapted further to demonstrate IPFS-boot [attestation](https://en.wikipedia.org/wiki/Trusted_Computing#Remote_attestation) features
++ Click on the demo link below
++ Load v0.0.4 or later
++ Click "Attestation demo"
++ Target = Prod = lock.host-node
+
+*It might not look like much but the demo demonstrates **true** code-as-contract with an end-to-end trust anchor*
 
 ## Build
 The aim is reproducible builds so docker is involved
