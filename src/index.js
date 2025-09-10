@@ -26,6 +26,7 @@ function store(state, emitter) {
   // user select target = prod or dev
   emitter.on('attestConfig', (config) => {
     if (!state.attestReady) { return emitter.emit('render') }
+    state.fetchError = null
     state.attestConfig = config
     const [id, target, pattern, PCR] = config
     const patterns = [{ PCR, pattern }]
@@ -46,6 +47,7 @@ function store(state, emitter) {
   state.enclaveWallet = null
   emitter.on('queryEnclaveWallet', () => {
     if (!state.attestConfigReady) { return }
+    state.fetchError = null
     const target = state.attestConfig[1] + '/wallet'
     fetchOrError(target).then((json) => {
       state.enclaveWallet = json
@@ -69,6 +71,7 @@ function store(state, emitter) {
   emitter.on('queryUserWallet', () => {
     if (!state.attestConfigReady) { return }
     if (!state.userWallet) { return }
+    state.fetchError = null
     const addr = state.userWallet.publicKey.toBase58()
     const target = state.attestConfig[1] + `/wallet?addr=${addr}`
     fetchOrError(target).then((json) => {
@@ -92,6 +95,7 @@ function store(state, emitter) {
   emitter.on('askForFunds', () => {
     if (!state.attestConfigReady) { return }
     if (!state.userWallet) { return }
+    state.fetchError = null
     const addr = state.userWallet.publicKey.toBase58()
     const params = new URLSearchParams({ message: state.askForFunds, addr })
     const target = state.attestConfig[1] + `/ask?${params.toString()}`
