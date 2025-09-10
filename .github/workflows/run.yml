@@ -26,8 +26,6 @@ jobs:
           cidv1_3=$(cat versions.json | jq -r .arr[-1].cid)
           [ "$cidv1_1" = "$cidv1_2" ] || exit 1
           [ "$cidv1_1" = "$cidv1_3" ] || exit 1
-          echo "ok"
-          [ "$cidv1_1" = "" ] || exit 1
 
       - name: Zip
         uses: actions/upload-artifact@v4
