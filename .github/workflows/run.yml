@@ -24,8 +24,8 @@ jobs:
           cidv1_1=$(cat out.txt | grep "CIDv1 =" | awk '{print $3}')
           cidv1_2=$(cat README.md | grep "CIDv1 =" | awk '{print $4}')
           cidv1_3=$(cat versions.json | jq -r .arr[-1].cid)
-          [ "$cidv1_1" = "$cidv1_2" ] || exit 1
-          [ "$cidv1_1" = "$cidv1_3" ] || exit 1
+          bash -c '[[ "$1" == "$2" ]]' _ "$cidv1_1" "$cidv1_2" || exit 1
+          bash -c '[[ "$1" == "$2" ]]' _ "$cidv1_1" "$cidv1_3" || exit 1
 
       - name: Zip
         uses: actions/upload-artifact@v4
