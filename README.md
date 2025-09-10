@@ -4,7 +4,7 @@ IPFS-boot choo.js starter, see:
 + [choo.js](https://github.com/choojs/choo)
 
 ## History
-This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals). All that differs from standard choo.js is [index.js](https://github.com/rhodey/IPFS-boot-choo/blob/master/src/index.js) knows to unmount
+This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals). All that differs from standard choo.js is [index.js](/src/index.js) knows to unmount
 
 ## Build
 The aim is reproducible builds so docker is involved
@@ -44,9 +44,9 @@ npm run dev
 ```
 
 ## Demo
-Please if you want to style the [bootloader](https://github.com/rhodey/IPFS-boot), open a PR ^.^
+Please if you want to style the bootloader, open a PR ^.^
 + ipfs://bafybeid2eom3gwxknthadjdtywn7zpisteivmgbxtyjctr2pan4flcgnce
 + https://bafybeid2eom3gwxknthadjdtywn7zpisteivmgbxtyjctr2pan4flcgnce.ipfs.dweb.link
 
 ## License
-MIT - Copyright 2025 - mike@rhodey.org
+MIT
