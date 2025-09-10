@@ -18,7 +18,6 @@ The aim is reproducible builds so docker is involved
 ```
 docker buildx build --platform=linux/amd64 -t ipfs-boot-choo .
 docker run --rm -i --platform=linux/amd64 -v ./dist:/root/dist ipfs-boot-choo
-> CIDv0 = QmUp7hGychg4jMdbth9WP61uKqFdh7g9GAduoPCddc7FVF
 > CIDv1 = bafybeidaf5ipgtca3muv52ylf7bvipmeaqcaihhlxw2m3vmjmco7iavfpy
 ```
 
@@ -51,7 +50,7 @@ npm run dev
 ```
 
 ## Demo
-Please if you want to style the bootloader, open a PR ^.^
+These CIDs are IPFS-boot, when selecting an app version you will see CIDv1 from above
 + ipfs://bafybeigrbz4w33crcspgg5at43eecxrjcfz442xx6cn4yieazvn3ma2xl4
 + https://bafybeigrbz4w33crcspgg5at43eecxrjcfz442xx6cn4yieazvn3ma2xl4.ipfs.dweb.link
 
