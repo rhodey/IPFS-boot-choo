@@ -19,6 +19,12 @@
       "timems": 1752009014025,
       "cid": "bafybeif5m4rup2oprdwnlkhicqibods7347fwfejag5gp4rjmczkjjafgq",
       "notes": "Version 3 is here to make the list longer"
+    },
+    {
+      "version": "v0.0.4",
+      "timems": 1757542330631,
+      "cid": "bafybeidaf5ipgtca3muv52ylf7bvipmeaqcaihhlxw2m3vmjmco7iavfpy",
+      "notes": "Version 4 = Attestation preview"
     }
   ]
 }

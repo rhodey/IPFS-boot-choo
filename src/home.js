@@ -6,17 +6,8 @@ function animal(onclick, animal, i) {
 }
 
 module.exports = function home(state, emit) {
-  // this is only for demonstration
-  const version = 3
-  const header = version === 1 ?
-    html`<h1 class="header">Hello! v${version}! Click to add animal</h1>`
-    : html`<h1 class="header">Hello! v${version}!! Click to add animal</h1><h1 class="header">Now with walruses!!</h1>`
-  const also = version === 1 ? '' : html`<li><a href="/filter/walrus">walruses</a></li>`
-
-  let animals = ['crocodile', 'koala', 'lion', 'tiger']
-  animals = version === 1 ? animals : [...animals, 'walrus']
-
   const filter = state.params.name
+  const animals = ['crocodile', 'koala', 'lion', 'tiger', 'walrus']
 
   function add(e) {
     const x = e.offsetX - 20
@@ -36,9 +27,15 @@ module.exports = function home(state, emit) {
     return animal(remove, obj, i)
   }
 
+  function attestationDemo() {
+    const onclick = (e) => emit('pushState', '/wallet')
+    return html`<button onclick=${onclick}>Attestation demo</button>`
+  }
+
   return html`
     <div class="container app">
-      ${header}
+      <h1 class="header">Hello! v4!! Click to add animal</h1>
+      ${attestationDemo()}
       <div class="grass">
         <img src="/_static/assets/bg.gif" onclick=${add} />
         ${state.animals.map(animalMap)}
@@ -50,7 +47,7 @@ module.exports = function home(state, emit) {
           <li><a href="/filter/koala">koalas</a>,</li>
           <li><a href="/filter/lion">lions</a>,</li>
           <li><a href="/filter/tiger">tigers</a>,</li>
-          ${also}
+          <li><a href="/filter/walrus">walruses</a></li>
         </ul>
       </div>
       <footer>

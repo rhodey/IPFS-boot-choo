@@ -1,38 +1,31 @@
-name: Run build
+name: Run
 
 on:
   push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - master
 
 jobs:
   build:
     runs-on: ubuntu-24.04
-    outputs:
-      cidv0: ${{ steps.webapp.outputs.cidv0 }}
-      cidv1: ${{ steps.webapp.outputs.cidv1 }}
     steps:
       - uses: actions/checkout@v4
-      - name: Build docker
-        run: docker buildx build --platform=linux/amd64 -t ipfs-boot-choo .
-
-      - name: Build webapp
-        id: webapp
+      - name: Build
         run: |
+          docker buildx build --platform=linux/amd64 -t ipfs-boot-choo .
           docker run --rm -i --platform=linux/amd64 -v ./dist:/root/dist ipfs-boot-choo | tee out.txt
-          cidv0=$(cat out.txt | grep CIDv0 | awk '{print $3}')
-          cidv1=$(cat out.txt | grep CIDv1 | awk '{print $3}')
-          echo "cidv0=$cidv0" >> $GITHUB_OUTPUT
-          echo "cidv1=$cidv1" >> $GITHUB_OUTPUT
 
-      - name: Summary
+      - name: Check CIDs
         run: |
-          echo "Build ok"
-          echo "CIDv0 = ${{ steps.webapp.outputs.cidv0 }}"
-          echo "CIDv1 = ${{ steps.webapp.outputs.cidv1 }}"
-          echo "Build ok:" >> $GITHUB_STEP_SUMMARY
-          echo "+ CIDv0 = ${{ steps.webapp.outputs.cidv0 }}" >> $GITHUB_STEP_SUMMARY
-          echo "+ CIDv1 = ${{ steps.webapp.outputs.cidv1 }}" >> $GITHUB_STEP_SUMMARY
+          cidv1_1=$(cat out.txt | grep "CIDv1 =" | awk '{print $3}')
+          cidv1_2=$(cat README.md | grep "CIDv1 =" | awk '{print $4}')
+          cidv1_3=$(cat versions.json | jq -r .arr[-1].cid)
+          bash -c '[[ "$1" == "$2" ]]' _ "$cidv1_1" "$cidv1_2" || exit 1
+          bash -c '[[ "$1" == "$2" ]]' _ "$cidv1_1" "$cidv1_3" || exit 1
 
       - name: Zip
         uses: actions/upload-artifact@v4

@@ -15,6 +15,7 @@
     "dev": "webpack serve --config webpack.js"
   },
   "dependencies": {
+    "@solana/web3.js": "^1.98.4",
     "choo": "^7.1.0",
     "nanolru": "^1.0.0"
   },

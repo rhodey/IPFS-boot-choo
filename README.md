@@ -1,16 +1,24 @@
 # IPFS-boot-choo
 IPFS-boot choo.js starter, see:
 + [IPFS-boot](https://github.com/rhodey/IPFS-boot)
++ [lock.host-node](https://github.com/rhodey/lock.host-node)
 + [choo.js](https://github.com/choojs/choo)
 
 ## History
-This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals). All that differs from standard choo.js is [index.js](https://github.com/rhodey/IPFS-boot-choo/blob/master/src/index.js) knows to unmount
+This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals) and then adapted further to demonstrate IPFS-boot [attestation](https://en.wikipedia.org/wiki/Trusted_Computing#Remote_attestation)
++ Click on the demo link below
++ Load v0.0.4 or later
++ Click "Attestation demo"
++ Target = Prod = lock.host-node
+
+*It might not look like much but the demo demonstrates **true code-as-contract** with an end-to-end trust anchor*
 
 ## Build
 The aim is reproducible builds so docker is involved
 ```
 docker buildx build --platform=linux/amd64 -t ipfs-boot-choo .
 docker run --rm -i --platform=linux/amd64 -v ./dist:/root/dist ipfs-boot-choo
+> CIDv1 = bafybeidaf5ipgtca3muv52ylf7bvipmeaqcaihhlxw2m3vmjmco7iavfpy
 ```
 
 ## Pin
@@ -42,9 +50,9 @@ npm run dev
 ```
 
 ## Demo
-Please if you want to style the [bootloader](https://github.com/rhodey/IPFS-boot), open a PR ^.^
-+ ipfs://bafybeid2eom3gwxknthadjdtywn7zpisteivmgbxtyjctr2pan4flcgnce
-+ https://bafybeid2eom3gwxknthadjdtywn7zpisteivmgbxtyjctr2pan4flcgnce.ipfs.dweb.link
+These CIDs are IPFS-boot, when selecting an app version you will see CIDv1 from above
++ ipfs://bafybeibbwz7bew6l3e5lsgneebvhfe63qclvhygkmh6ba7nk566a4qdy7i
++ https://bafybeibbwz7bew6l3e5lsgneebvhfe63qclvhygkmh6ba7nk566a4qdy7i.ipfs.dweb.link
 
 ## License
-MIT - Copyright 2025 - mike@rhodey.org
+MIT
