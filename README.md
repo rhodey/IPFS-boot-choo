@@ -52,8 +52,8 @@ npm run dev
 
 ## Demo
 Please if you want to style the bootloader, open a PR ^.^
-+ ipfs://bafybeid2eom3gwxknthadjdtywn7zpisteivmgbxtyjctr2pan4flcgnce
-+ https://bafybeid2eom3gwxknthadjdtywn7zpisteivmgbxtyjctr2pan4flcgnce.ipfs.dweb.link
++ ipfs://bafybeigrbz4w33crcspgg5at43eecxrjcfz442xx6cn4yieazvn3ma2xl4
++ https://bafybeigrbz4w33crcspgg5at43eecxrjcfz442xx6cn4yieazvn3ma2xl4.ipfs.dweb.link
 
 ## License
 MIT
