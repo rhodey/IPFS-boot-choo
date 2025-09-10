@@ -11,7 +11,7 @@ This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-an
 + Click "Attestation demo"
 + Target = Prod = lock.host-node
 
-*It might not look like much but the demo demonstrates **true** code-as-contract with an end-to-end trust anchor*
+*It might not look like much but the demo demonstrates **true code-as-contract** with an end-to-end trust anchor*
 
 ## Build
 The aim is reproducible builds so docker is involved
