@@ -19,7 +19,7 @@ jobs:
           docker buildx build --platform=linux/amd64 -t ipfs-boot-choo .
           docker run --rm -i --platform=linux/amd64 -v ./dist:/root/dist ipfs-boot-choo | tee out.txt
 
-      - name: Check docs
+      - name: Check CIDs
         run: |
           cidv1_1=$(cat out.txt | grep "CIDv1 =" | awk '{print $3}')
           cidv1_2=$(cat README.md | grep "CIDv1 =" | awk '{print $4}')
