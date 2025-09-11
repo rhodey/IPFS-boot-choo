@@ -5,11 +5,12 @@ IPFS-boot choo.js starter, see:
 + [choo.js](https://github.com/choojs/choo)
 
 ## History
-This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals) and then adapted further to demonstrate IPFS-boot [attestation](https://en.wikipedia.org/wiki/Trusted_Computing#Remote_attestation)
+This repo was adapted from [choo-animals](https://github.com/louiscenter/choo-animals) and then adapted further to demonstrate IPFS-boot attestation
 + Click on the demo link below
 + Load v0.0.4 or later
 + Click "Attestation demo"
 + Target = Prod = lock.host-node
++ Use [explorer.solana.com](https://explorer.solana.com/address/AkHqQ324DvygPxuhyYs9BTVG8b1BXzTnpbCxqG8zousm?cluster=devnet) to confirm balances
 
 *It might not look like much but the demo demonstrates **true code-as-contract** with an end-to-end trust anchor*
 
