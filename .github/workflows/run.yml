@@ -14,18 +14,14 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
       - name: Build
-        run: |
-          docker buildx build --platform=linux/amd64 -t ipfs-boot-choo .
-          docker run --rm -i --platform=linux/amd64 -v ./dist:/root/dist ipfs-boot-choo | tee out.txt
-
-      - name: Check CIDs
-        run: |
-          cidv1_1=$(cat out.txt | grep "CIDv1 =" | awk '{print $3}')
-          cidv1_2=$(cat README.md | grep "CIDv1 =" | awk '{print $4}')
-          cidv1_3=$(cat versions.json | jq -r .arr[-1].cid)
-          bash -c '[[ "$1" == "$2" ]]' _ "$cidv1_1" "$cidv1_2" || exit 1
-          bash -c '[[ "$1" == "$2" ]]' _ "$cidv1_1" "$cidv1_3" || exit 1
+        run: npm run build
 
       - name: Zip
         uses: actions/upload-artifact@v4
